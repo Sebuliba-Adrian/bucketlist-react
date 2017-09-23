@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Logo from '../logo';
 import Message from '../message';
 import LineWithText from './line-with-text';
 import Footer from './footer';
 import { APIUrl } from '../../App';
 
-export default class Registration extends Component {
+export default class LoginPage extends Component {
   constructor(props) {
     super(props);
-    this.state = this.getDefaultState();
+    let isLoggedIn = false;
+    let message = null;
+    if (localStorage.getItem('token') != null) {
+      isLoggedIn = true;
+    }
+    if (this.props.location.data != null) {
+      message = this.props.location.data.message;
+    }
+    this.state = {
+      message,
+      isLoggedIn,
+      username: '',
+      password: '',
+    };
   }
 
   onInputChange = ({ target }) => {
@@ -18,25 +31,16 @@ export default class Registration extends Component {
     });
   }
 
-  getDefaultState = () => ({
-    registered: false,
-    message: null,
-    name: '',
-    username: '',
-    password: '',
-    password_rpt: '',
-  })
-
-  submitUserDetails = (event) => {
+  submitUserCredentials = (event) => {
     event.preventDefault();
-    this.registerUser();
+    this.loginUser();
   }
 
-  registerUser = () => {
+  loginUser = () => {
     this.setState({
-      message: 'Trying to register...',
+      message: 'Trying to login...',
     });
-    fetch(`${APIUrl}auth/register`, {
+    fetch(`${APIUrl}auth/login`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -50,38 +54,32 @@ export default class Registration extends Component {
             message: data.message,
           });
         } else {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('username', this.state.username);
           this.setState({
-            registered: true,
-            message: 'Account created. Please login to proceed.',
+            isLoggedIn: true,
+            message: '',
+            password: '',
           });
         }
       });
   }
   render() {
-    if (this.state.registered) {
-      return <Redirect to={{ pathname: '/login', data: { message: this.state.message } }} />;
+    if (this.state.isLoggedIn) {
+      return <Redirect to="/dashboard" />;
     }
     return (
       <div className="col-md-4 offset-md-4 col-xs-10 offset-xs-2">
         <div className="card mt-5 p-4">
           <div className="card-block">
             <Logo />
-            <LineWithText lineText="REGISTER" />
+            <LineWithText lineText="LOGIN" />
             {this.state.message != null &&
               <Message
                 message={this.state.message}
               />
             }
-            <form onSubmit={this.submitUserDetails}>
-              <input
-                type="text"
-                className="form-control mb-1"
-                placeholder="Full name"
-                name="name"
-                value={this.state.name}
-                onChange={this.onInputChange}
-                required
-              />
+            <form onSubmit={this.submitUserCredentials}>
               <input
                 type="text"
                 className="form-control mb-1"
@@ -92,21 +90,12 @@ export default class Registration extends Component {
                 required
               />
               <input
+                className="form-control mb-2"
                 type="password"
-                className="form-control mb-1"
-                placeholder="Password"
                 name="password"
                 value={this.state.password}
                 onChange={this.onInputChange}
-                required
-              />
-              <input
-                className="form-control mb-2"
-                type="password"
-                name="password_rpt"
-                placeholder="Repeat password"
-                value={this.state.password_rpt}
-                onChange={this.onInputChange}
+                placeholder="Password"
                 required
               />
               <button
@@ -115,16 +104,14 @@ export default class Registration extends Component {
               >Submit
               </button>
             </form>
-            <p
-              className="grey-text text-center mt-4 message"
-            >
-              <p>By signing up, you agree to our<br />
-                <b>Terms & Privacy Policy</b>
-              </p>
+            <p className="grey-text text-center mt-4 message">
+              Resolve password issues
+              <Link to="/reset-password" className="card-link"> here</Link>
             </p>
           </div>
         </div>
-        <Footer message="Have an account? " link="/login" linkText="Log in" />
-      </div>);
+        <Footer message="Don't have an account? " link="/registration" linkText="Register" />
+      </div>
+    );
   }
 }
