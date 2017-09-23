@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Registration from './components/authentication/registration';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <Route path="/registration" component={Registration} />
+  </BrowserRouter>
+);
 
 export default App;
+export const APIUrl = 'http://127.0.0.1:5000/';
