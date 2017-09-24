@@ -2,12 +2,14 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Registration from './components/authentication/registration';
 import Login from './components/authentication/login';
+import Bucketlists from './components/bucketlists/bucketlists';
 
 const App = () => (
   <BrowserRouter>
     <div>
       <Route path="/registration" component={Registration} />
       <Route path="/login" component={Login} />
+      <Route path="/bucketlists" component={Bucketlists} />
     </div>
   </BrowserRouter>
 );

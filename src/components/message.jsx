@@ -3,7 +3,7 @@ import React from 'react';
 export default function Message({ message }) {
   return (
     <div
-      className={'message alert text-center alert-dismissible fade show alert-info'}
+      className={'message alert alert-dismissible fade show alert-info'}
       role="alert"
     >
       <button
