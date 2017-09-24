@@ -5,7 +5,7 @@ export default function NavBar() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-4 text-center">
+        <div className="col-md-4">
           <Link to="/dashboard" className="navbar-brand logo">
             <h3>BUCKETLIST</h3>
           </Link>
@@ -17,8 +17,8 @@ export default function NavBar() {
             placeholder="Search"
           />
         </div>
-        <div className="col-md-4 text-center">
-          <a className="nav-link" href="#">
+        <div className="col-md-4 text-right">
+          <a className="nav-link logo" href="#">
             { localStorage.getItem('username') } <span className="fa fa-sign-out" />
           </a>
         </div>
