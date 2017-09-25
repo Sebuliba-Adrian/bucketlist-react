@@ -9,6 +9,11 @@ body {
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.no-border-corners {
+  margin-top: -16px;
+  border-radius: 0px;
+}
+
 .grey-text {
   color: #888;
 }
