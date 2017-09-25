@@ -1,8 +1,4 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import NavBar from '../navbar';
-import { APIUrl } from '../../App';
-import Message from '../message';
+import React from 'react';
 import BucketlistModal from './bucketlist-modal';
 import Bucketlist from './bucketlist';
 
@@ -15,7 +11,7 @@ export default function Bucketlists(props) {
             <div className="d-flex w-100 justify-content-between mb-2">
               <p />
               <button
-                className="btn btn-sm btn-primary col-xs-12"
+                className="btn btn-sm btn-cool-blue col-xs-12"
                 data-toggle="modal"
                 data-target="#addBucketlistModal"
               ><span className="fa fa-plus pull-left" /> Add bucketlist
@@ -25,7 +21,7 @@ export default function Bucketlists(props) {
               props.bucketlists && props.bucketlists.length !== 0 &&
                 <div>
                   <h6 className="card-text ml-4 pb-2">
-                      Bucketlists <small className="text-muted">select to view details</small>
+                      Bucketlists <small className="text-muted">select a bucketlist to view it's items</small>
                   </h6>
                   <ul className="list-group list-group-flush">
                     {

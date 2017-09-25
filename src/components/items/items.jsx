@@ -9,9 +9,9 @@ export default function Items(props) {
         <div className="card mt-3 mb-3">
           <div className="card-block">
             <div className="d-flex w-100 justify-content-between mb-2">
-              <button onClick={props.viewBucketlists}>{props.selectedBucketlist.title}</button>
+              <h5>{props.selectedBucketlist.title}</h5>
               <button
-                className="btn btn-sm btn-primary col-xs-12"
+                className="btn btn-sm btn-cool-blue col-xs-12"
                 data-toggle="modal"
                 data-target="#addItemModal"
               ><span className="fa fa-plus pull-left" /> Add Item
@@ -21,7 +21,7 @@ export default function Items(props) {
               props.items && props.items.length !== 0 &&
                 <div>
                   <h6 className="card-text ml-4 pb-2">
-                    Items <small className="text-muted">select to view details</small>
+                    Items <small className="text-muted"> select to view details</small>
                   </h6>
                   <ul className="list-group list-group-flush">
                     {

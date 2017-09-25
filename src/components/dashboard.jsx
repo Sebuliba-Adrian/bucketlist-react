@@ -12,7 +12,7 @@ export default class Dashboard extends Component {
     this.state = {
       token: localStorage.getItem('token'),
       showing: 'bucketlists',
-      message: null,
+      message: 'Processing...',
       bucketlists: [],
       selectedBucketlist: null,
       items: [],
@@ -40,9 +40,6 @@ export default class Dashboard extends Component {
   }
 
   request = (action, urlEndPoint, requestMethod, requestBody) => {
-    this.setState({
-      message: 'Processing...',
-    });
     fetch(`${APIUrl}${urlEndPoint}`, {
       headers: {
         Accept: 'application/json',
@@ -112,6 +109,7 @@ export default class Dashboard extends Component {
           localStorage.removeItem('username');
           this.setState({
             message: 'You have successfully logged out.',
+            token: null,
           });
         } else if (action === 'getItems') {
           if (data.items) {
@@ -164,8 +162,8 @@ export default class Dashboard extends Component {
     }
     return (
       <div>
-        <div className="custom-navbar">
-          <NavBar logoutUser={this.logoutUser} />
+        <div className="custom-navbar bg-cool-blue">
+          <NavBar request={this.request} viewBucketlists={this.viewBucketlists} />
         </div>
         {
           this.state != null && this.state.message &&

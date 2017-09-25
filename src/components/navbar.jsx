@@ -1,14 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-export default function NavBar() {
+export default function NavBar(props) {
+  function logoutUser(event) {
+    event.preventDefault();
+    props.request('logoutUser', 'auth/logout', 'GET');
+  }
+  function viewBucketlists(event) {
+    event.preventDefault();
+    props.viewBucketlists();
+  }
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-4">
-          <Link to="/dashboard" className="navbar-brand logo">
-            <h3>BUCKETLIST</h3>
-          </Link>
+          <a href="" onClick={viewBucketlists} className="navbar-brand logo text-white">
+            <h3>BUCKETLISTS</h3>
+          </a>
         </div>
         <div className="col-md-4">
           <input
@@ -18,7 +25,11 @@ export default function NavBar() {
           />
         </div>
         <div className="col-md-4 text-right">
-          <a className="nav-link logo" href="#">
+          <a
+            className="nav-link logo text-white"
+            href=""
+            onClick={logoutUser}
+          >
             { localStorage.getItem('username') } <span className="fa fa-sign-out" />
           </a>
         </div>

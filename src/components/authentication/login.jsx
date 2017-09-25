@@ -99,7 +99,7 @@ export default class LoginPage extends Component {
                 required
               />
               <button
-                className="btn btn-primary btn-sm col-md-12"
+                className="btn btn-cool-blue btn-sm col-md-12"
                 type="submit"
               >Submit
               </button>
