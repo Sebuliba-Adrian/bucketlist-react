@@ -19,12 +19,17 @@ export default class BucketlistModal extends Component {
     });
   }
 
+  handleClick = (event) => {
+    event.stopPropagation();
+  }
+
   submitData = (event) => {
     if (this.props.theId === 'addBucketlistModal') {
-      this.props.bucketlistTransaction('addBucketlist', 'bucketlists', 'POST', this.state);
+      this.props.request('addBucketlist', 'bucketlists', 'POST', this.state);
     } else {
-      this.props.bucketlistTransaction('updateBucketlist', `bucketlists/${this.state.id}`, 'PUT', this.state);
+      this.props.request('updateBucketlist', `bucketlists/${this.state.id}`, 'PUT', this.state);
     }
+    event.stopPropagation();
   }
 
   render() {
@@ -68,6 +73,7 @@ export default class BucketlistModal extends Component {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={this.handleClick}
               >
                 Cancel
               </button>

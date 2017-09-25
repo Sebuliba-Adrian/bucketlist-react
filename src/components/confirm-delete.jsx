@@ -1,8 +1,16 @@
 import React from 'react';
 
 export default function ConfirmDelete(props) {
-  function deleteBucket() {
-    props.bucketlistTransaction('deleteBucketlist', `bucketlists/${props.bucketlist.id}`, 'DELETE');
+  function deleteAction(event) {
+    if (props.theId.indexOf('deleteBucketModel') > 0) {
+      props.request('deleteBucketlist', `bucketlists/${props.bucketlist.id}`, 'DELETE');
+    } else {
+      props.request('deleteItem', `bucketlists/${props.selectedBucketlist.id}/items/${props.item.id}`, 'DELETE');
+    }
+    event.stopPropagation();
+  }
+  function cancelDelete(event) {
+    event.stopPropagation();
   }
   return (
     <div className="modal fade" id={props.theId} tabIndex="-1" role="dialog">
@@ -22,6 +30,7 @@ export default function ConfirmDelete(props) {
               type="button"
               className="btn btn-secondary"
               data-dismiss="modal"
+              onClick={cancelDelete}
             >
               Cancel
             </button>
@@ -29,7 +38,7 @@ export default function ConfirmDelete(props) {
               type="button"
               className="btn btn-primary"
               data-dismiss="modal"
-              onClick={deleteBucket}
+              onClick={deleteAction}
             >
               Delete
             </button>
