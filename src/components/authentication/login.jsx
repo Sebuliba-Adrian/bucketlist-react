@@ -70,9 +70,10 @@ export default class LoginPage extends Component {
     }
     return (
       <div className="col-md-4 offset-md-4 col-xs-10 offset-xs-2">
-        <div className="card mt-5 p-4">
+        <Logo />
+        <div className="card p-4 no-border-corners">
+          <p className="text-center grey-text">Record and track your goals </p>
           <div className="card-block">
-            <Logo />
             <LineWithText lineText="LOGIN" />
             {this.state.message != null &&
               <Message

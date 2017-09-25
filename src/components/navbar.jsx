@@ -9,12 +9,17 @@ export default function NavBar(props) {
     event.preventDefault();
     props.viewBucketlists();
   }
+  function triggerSearch(event) {
+    if (event.keyCode === 13) {
+      props.search(event.target.value);
+    }
+  }
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-4">
           <a href="" onClick={viewBucketlists} className="navbar-brand logo text-white">
-            <h3>BUCKETLISTS</h3>
+            <h3><span className="fa fa-lg fa-bitbucket mr-3" />| &nbsp; BUCKETLISTS</h3>
           </a>
         </div>
         <div className="col-md-4">
@@ -22,6 +27,7 @@ export default function NavBar(props) {
             className="form-control mr-sm-2 search-box"
             type="text"
             placeholder="Search"
+            onKeyDown={triggerSearch}
           />
         </div>
         <div className="col-md-4 text-right">

@@ -39,6 +39,22 @@ export default class Dashboard extends Component {
     });
   }
 
+  search = (searchTerm) => {
+    if (this.state.showing === 'bucketlists') {
+      if (searchTerm !== '') {
+        this.request('getBucketlists', `bucketlists?q=${searchTerm}`, 'GET');
+      } else {
+        this.request('getBucketlists', 'bucketlists', 'GET');
+      }
+    } else {
+      if (searchTerm !== '') {
+        this.request('getItems', `bucketlists/${this.state.selectedBucketlist.id}/items?q=${searchTerm}`, 'GET');
+      } else {
+        this.request('getItems', `bucketlists/${this.state.selectedBucketlist.id}/items`, 'GET');
+      }
+    }
+  }
+
   request = (action, urlEndPoint, requestMethod, requestBody) => {
     fetch(`${APIUrl}${urlEndPoint}`, {
       headers: {
@@ -163,7 +179,11 @@ export default class Dashboard extends Component {
     return (
       <div>
         <div className="custom-navbar bg-cool-blue">
-          <NavBar request={this.request} viewBucketlists={this.viewBucketlists} />
+          <NavBar
+            request={this.request}
+            viewBucketlists={this.viewBucketlists}
+            search={this.search}
+          />
         </div>
         {
           this.state != null && this.state.message &&
