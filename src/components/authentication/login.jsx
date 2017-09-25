@@ -66,7 +66,7 @@ export default class LoginPage extends Component {
   }
   render() {
     if (this.state.isLoggedIn) {
-      return <Redirect to="/bucketlists" />;
+      return <Redirect to="/dashboard" />;
     }
     return (
       <div className="col-md-4 offset-md-4 col-xs-10 offset-xs-2">
