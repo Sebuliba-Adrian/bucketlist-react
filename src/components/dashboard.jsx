@@ -14,7 +14,7 @@ export default class Dashboard extends Component {
       showing: 'bucketlists',
       message: 'Processing...',
       bucketlists: [],
-      selectedBucketlist: null,
+      selectedBucketlist: {},
       items: [],
     };
     if (this.state.token) {
@@ -34,8 +34,8 @@ export default class Dashboard extends Component {
     this.request('getBucketlists', 'bucketlists', 'GET');
     this.setState({
       showing: 'bucketlists',
-      items: null,
-      selectedBucketlist: null,
+      items: [],
+      selectedBucketlist: {},
     });
   }
 
@@ -82,18 +82,18 @@ export default class Dashboard extends Component {
         } else if (action === 'getBucketlists') {
           if (data.bucketlists) {
             this.setState({
-              message: null,
+              message: '',
               bucketlists: data.bucketlists,
             });
           } else {
             this.setState({
-              message: "You don't have any bucketlists. Use the above button to add some.",
+              message: "You don't have any bucketlists. Use the button below to add some.",
               bucketlists: [],
             });
           }
         } else if (action === 'addBucketlist') {
-          let updateBucketlists = null;
-          if (this.state.bucketlists != null) {
+          let updateBucketlists = [];
+          if (this.state.bucketlists.length > 0) {
             updateBucketlists = this.state.bucketlists.slice();
           }
           updateBucketlists.push(data.bucketlist);
@@ -130,18 +130,18 @@ export default class Dashboard extends Component {
         } else if (action === 'getItems') {
           if (data.items) {
             this.setState({
-              message: null,
+              message: '',
               items: data.items,
             });
           } else {
             this.setState({
-              message: "You don't have any items in this bucketlist. Use the above button to add some.",
+              message: "You don't have any items in this bucketlist. Use the button below to add some.",
               items: [],
             });
           }
         } else if (action === 'addItem') {
-          let updatedItems = null;
-          if (this.state.items != null) {
+          let updatedItems = [];
+          if (this.state.items > 0) {
             updatedItems = this.state.items.slice();
           }
           updatedItems.push(data.item);
@@ -186,7 +186,7 @@ export default class Dashboard extends Component {
           />
         </div>
         {
-          this.state != null && this.state.message &&
+          this.state != null && this.state.message.length > 0 &&
             <Message
               message={this.state.message}
             />

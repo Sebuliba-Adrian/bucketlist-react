@@ -51,6 +51,12 @@ export default function Item(props) {
             <br />
             <h4 className="mb-1">{props.item.title}</h4>
             <h6>{props.item.description}</h6>
+            <p>
+              <small className="text-muted">
+                <strong>Status: </strong>
+                {props.item.status}
+              </small>
+            </p>
           </div>
         </div>
       </div>

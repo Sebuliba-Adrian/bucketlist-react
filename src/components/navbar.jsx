@@ -36,7 +36,7 @@ export default function NavBar(props) {
             href=""
             onClick={logoutUser}
           >
-            { localStorage.getItem('username') } <span className="fa fa-sign-out" />
+            { localStorage.getItem('username') } &nbsp;<span className="fa fa-sign-out" />
           </a>
         </div>
       </div>

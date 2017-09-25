@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ConfirmDelete(props) {
   function deleteAction(event) {
-    if (props.theId.indexOf('deleteBucketModel') > 0) {
+    if (props.theId.indexOf('deleteBucketModel') > -1) {
       props.request('deleteBucketlist', `bucketlists/${props.bucketlist.id}`, 'DELETE');
     } else {
       props.request('deleteItem', `bucketlists/${props.selectedBucketlist.id}/items/${props.item.id}`, 'DELETE');

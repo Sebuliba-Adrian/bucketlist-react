@@ -13,6 +13,7 @@ export default function Bucketlist(props) {
     props.viewItems(props.bucketlist);
   }
   return (
+    <div>
     <a
       href=""
       onClick={viewItems}
@@ -58,6 +59,7 @@ export default function Bucketlist(props) {
           </div>
         </div>
       </div>
+    </a>
       <BucketlistModal
         title="Edit a bucketlist"
         action="Submit"
@@ -70,6 +72,6 @@ export default function Bucketlist(props) {
         bucketlist={props.bucketlist}
         request={props.request}
       />
-    </a>
+    </div>
   );
 }
