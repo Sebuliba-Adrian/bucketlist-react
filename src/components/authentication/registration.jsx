@@ -62,9 +62,12 @@ export default class Registration extends Component {
       return <Redirect to={{ pathname: '/login', data: { message: this.state.message } }} />;
     }
     return (
-      <div className="col-md-4 offset-md-4 col-xs-10 offset-xs-2">
-        <Logo />
-        <div className="card p-4 no-border-corners">
+      <div>
+        <div className="bg-banner" />
+        <div />
+      <div className="col-md-4 offset-md-4 col-xs-10 offset-xs-2 card-vcenter">
+        <div className="card pl-4 pr-4 pb-2 no-border-corners">
+          <Logo />
           <p className="text-center grey-text">Record and track your goals </p>
           <div className="card-block">
             <LineWithText lineText="REGISTER" />
@@ -77,12 +80,13 @@ export default class Registration extends Component {
               <input
                 type="text"
                 className="form-control mb-1"
-                placeholder="Full name"
+                placeholder="Name"
                 name="name"
                 value={this.state.name}
                 onChange={this.onInputChange}
                 required
               />
+              
               <input
                 type="text"
                 className="form-control mb-1"
@@ -116,16 +120,18 @@ export default class Registration extends Component {
               >Submit
               </button>
             </form>
+            <Footer message="Have an account? " link="/login" linkText="Log in" />
             <p
-              className="grey-text text-center mt-4 message"
+              className="grey-text text-center mt-2 message"
             >
-              <p>By signing up, you agree to our<br />
+              By signing up, you agree to our<br />
                 <b>Terms & Privacy Policy</b>
-              </p>
+            
             </p>
           </div>
         </div>
-        <Footer message="Have an account? " link="/login" linkText="Log in" />
+        
+        </div>
       </div>);
   }
 }
