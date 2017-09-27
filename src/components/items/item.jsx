@@ -9,18 +9,45 @@ export default function Item(props) {
     event.stopPropagation();
   }
   return (
-    <a
-      href=""
-      onClick={handleClick}
-      className="list-group-item list-group-item-action flex-column align-items-start"
-    >
-      <div className="container">
-        <div className="row">
-          <div className="col-md-2 hidden-sm-down">
-            <DateDisplay date={props.item.created_at} />
-          </div>
-          <div className="col-md-10 col-sm-12">
-            <div className="d-flex w-100 justify-content-between">
+    <div>
+      <a
+        href=""
+        onClick={handleClick}
+        className="list-group-item list-group-item-action flex-column align-items-start"
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2 hidden-sm-down">
+              <DateDisplay date={props.item.created_at} />
+            </div>
+            <div className="col-md-10 item-data">
+              <div className="d-flex w-100 justify-content-between">
+                <p>
+                  <small className="text-muted">
+                    {props.item.status ? 'Finished' : 'Pending'}
+                  </small>
+                </p>
+                <div>
+                  <div
+                    className="fa fa-lg fa-pencil-square-o mr-2"
+                    data-toggle="modal"
+                    data-backdrop="static"
+                    data-keyboard="false"
+                    onClick={handleClick}
+                    data-target={`#${props.item.id}`}
+                  />
+                  <div
+                    className="fa fa-lg fa-trash-o ml-2"
+                    data-toggle="modal"
+                    data-backdrop="static"
+                    data-keyboard="false"
+                    onClick={handleClick}
+                    data-target={`#deleteItemModel${props.item.id}`}
+                  />
+                </div>
+              </div>
+              <h5 className="mb-1 text-cool-blue">{props.item.title}</h5>
+              <h6 className="text-muted">{props.item.description}</h6>
               <div>
                 {props.item.updated_at &&
                 <small className="text-muted">
@@ -29,37 +56,10 @@ export default function Item(props) {
                 </small>
                 }
               </div>
-              <div>
-                <div
-                  className="fa fa-lg fa-pencil-square-o mr-2"
-                  data-toggle="modal"
-                  data-backdrop="static"
-                  data-keyboard="false"
-                  onClick={handleClick}
-                  data-target={`#${props.item.id}`}
-                />
-                <div
-                  className="fa fa-lg fa-trash-o ml-2"
-                  data-toggle="modal"
-                  data-backdrop="static"
-                  data-keyboard="false"
-                  onClick={handleClick}
-                  data-target={`#deleteItemModel${props.item.id}`}
-                />
-              </div>
             </div>
-            <br />
-            <h4 className="mb-1">{props.item.title}</h4>
-            <h6>{props.item.description}</h6>
-            <p>
-              <small className="text-muted">
-                <strong>Status: </strong>
-                {props.item.status}
-              </small>
-            </p>
           </div>
         </div>
-      </div>
+      </a>
       <ItemModal
         title="Edit a item"
         action="Submit"
@@ -74,6 +74,6 @@ export default function Item(props) {
         selectedBucketlist={props.selectedBucketlist}
         request={props.request}
       />
-    </a>
+    </div>
   );
 }

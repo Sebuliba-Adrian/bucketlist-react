@@ -9,14 +9,19 @@ export default class ItemModal extends Component {
       this.state = {
         title: '',
         description: '',
-        status: null,
+        status: '',
       };
     }
     this.defaultState = this.state;
   }
+
   onInputChange = ({ target }) => {
+    let { value } = target;
+    if (target.name === 'status') {
+      value = value === '1' ? 'True' : 'False';
+    }
     this.setState({
-      [target.name]: target.value,
+      [target.name]: value,
     });
   }
 
@@ -28,6 +33,7 @@ export default class ItemModal extends Component {
     if (this.props.theId === 'addItemModal') {
       this.props.request('addItem', `bucketlists/${this.props.selectedBucketlist.id}/items`, 'POST', this.state);
     } else {
+      this.state["new_status"] = this.state.status; // hack
       this.props.request('updateItem', `bucketlists/${this.props.selectedBucketlist.id}/items/${this.state.id}`, 'PUT', this.state);
     }
     event.stopPropagation();
@@ -73,17 +79,18 @@ export default class ItemModal extends Component {
                 />
               </div>
               <br />
-              { this.state.status !== null &&
+              { this.state.status !== '' &&
               <div className="form-group">
                 <label htmlFor="status">Status</label>
                 <select
+                  name="status"
                   className="form-control"
                   id="status"
+                  value={this.state.status ? '1' : '0'}
                   onChange={this.onInputChange}
-                  selected={this.state.status}
                 >
-                  <option value={true}>Finished</option>
-                  <option value={false}>Pending</option>
+                  <option value="1">Finished</option>
+                  <option value="0">Pending</option>
                 </select>
               </div>
               }
