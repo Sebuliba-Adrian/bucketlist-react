@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import NavBar from './navbar';
-import Message from './message';
 import Bucketlists from './bucketlists/bucketlists';
 import Items from './items/items';
 import { APIUrl } from '../App';
@@ -9,13 +8,14 @@ import { APIUrl } from '../App';
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
+    this.previousMessage = '';
     this.state = {
       token: localStorage.getItem('token'),
       showing: 'bucketlists',
       message: 'Processing...',
       bucketlists: [],
       selectedBucketlist: {},
-      items: [],
+      items: null,
     };
     if (this.state.token) {
       this.request('getBucketlists', 'bucketlists', 'GET');
@@ -25,6 +25,7 @@ export default class Dashboard extends Component {
   viewItems = (selectedBucketlist) => {
     this.setState({
       showing: 'items',
+      message: '',
       selectedBucketlist,
     });
     this.request('getItems', `bucketlists/${selectedBucketlist.id}/items`, 'GET');
@@ -40,18 +41,24 @@ export default class Dashboard extends Component {
   }
 
   search = (searchTerm) => {
-    if (this.state.showing === 'bucketlists') {
-      if (searchTerm !== '') {
-        this.request('getBucketlists', `bucketlists?q=${searchTerm}`, 'GET');
-      } else {
-        this.request('getBucketlists', 'bucketlists', 'GET');
-      }
+    if(searchTerm.length > 2){
+    if (searchTerm.substring(0, 2) === 'b:') {
+      this.request('getBucketlists', `bucketlists?q=${searchTerm.substring(2)}`, 'GET');
+    } else if (searchTerm.substring(0, 2) === 'i:') {
+      this.request('getItems', `bucketlists/${this.state.selectedBucketlist.id}/items?q=${searchTerm.substring(2)}`, 'GET');
+    }
     } else {
-      if (searchTerm !== '') {
-        this.request('getItems', `bucketlists/${this.state.selectedBucketlist.id}/items?q=${searchTerm}`, 'GET');
-      } else {
-        this.request('getItems', `bucketlists/${this.state.selectedBucketlist.id}/items`, 'GET');
-      }
+      this.request('getBucketlists', 'bucketlists', 'GET');
+      this.request('getItems', `bucketlists/${this.state.selectedBucketlist.id}/items`, 'GET');
+    }
+  
+  }
+  componentDidUpdate() {
+    if (this.state.message !== '' && this.state.token && this.previousMessage !== this.state.message) {
+      this.previousMessage = this.state.message;
+      this.snackbar.className = 'show';
+      this.snackbar.innerHTML = this.state.message;
+      setTimeout(() => { this.snackbar.className = this.snackbar.className.replace('show', ''); }, 3000);
     }
   }
 
@@ -77,6 +84,7 @@ export default class Dashboard extends Component {
           } else {
             this.setState({
               message: data.message,
+              items: [],
             });
           }
         } else if (action === 'getBucketlists') {
@@ -141,7 +149,7 @@ export default class Dashboard extends Component {
           }
         } else if (action === 'addItem') {
           let updatedItems = [];
-          if (this.state.items > 0) {
+          if (this.state.items.length > 0) {
             updatedItems = this.state.items.slice();
           }
           updatedItems.push(data.item);
@@ -185,25 +193,26 @@ export default class Dashboard extends Component {
             search={this.search}
           />
         </div>
-        {
-          this.state != null && this.state.message.length > 0 &&
-            <Message
-              message={this.state.message}
-            />
+        {//this.state.showing === 'bucketlists' ?
         }
-        {this.state.showing === 'bucketlists' ?
+        <div className="row">
+          <div className="col-4 bucketlists">
           <Bucketlists
             bucketlists={this.state.bucketlists}
             request={this.request}
             viewItems={this.viewItems}
-          /> :
+          /> 
+          </div>
+          <div className="col-8 items">
           <Items
             selectedBucketlist={this.state.selectedBucketlist}
             items={this.state.items}
             request={this.request}
             viewBucketlists={this.viewBucketlists}
           />
-        }
+          </div>
+        </div>
+        <div id="snackbar" ref={(snackbar) => { this.snackbar = snackbar; }} />
       </div>
     );
   }

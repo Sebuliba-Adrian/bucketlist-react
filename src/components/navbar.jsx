@@ -26,7 +26,7 @@ export default function NavBar(props) {
           <input
             className="form-control mr-sm-2 search-box"
             type="text"
-            placeholder="Search"
+            placeholder="Search e.g b:the bucket title or i:the item title"
             onKeyDown={triggerSearch}
           />
         </div>

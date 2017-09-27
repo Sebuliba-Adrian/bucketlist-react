@@ -47,7 +47,6 @@ body {
 }
 
 .search-box {
-  width: 300px;
   margin-top: 6px;
   display: inline-block;
   text-align: center;
@@ -59,7 +58,7 @@ body {
 }
 
 .text-cool-blue {
-  color: #1666a0;
+  color: #055E99;
 }
 .bg-cool-blue {
   background-color: #1666a0;
@@ -132,4 +131,24 @@ body {
 .dropdown-cust {
   right: 0;
   left: auto;
+}
+
+.bucketlists {
+  padding-right: 0;
+}
+
+.items {
+  padding-left: 0;
+}
+
+.items-container {
+  padding-left: 0;
+}
+
+.fa-pencil-square-o:hover {
+  color: #1666a0;
+}
+
+.fa-trash-o:hover {
+  color: #d9534f;
 }
