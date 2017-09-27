@@ -20,8 +20,21 @@ export default function Bucketlists(props) {
             {
               props.bucketlists && props.bucketlists.length !== 0 &&
                 <div>
-                  <h6 className="card-text ml-4 pb-2">
-                      Bucketlists <small className="text-muted">select a bucketlist to view it's items</small>
+                  <nav className="ml-4">
+                    <ul className="pagination pagination-sm">
+                      <li className="page-item disabled">
+                        <a className="page-link" href="#" tabindex="-1">Previous</a>
+                      </li>
+                      <li className="page-item"><a className="page-link text-cool-blue" href="#">1</a></li>
+                      <li className="page-item"><a className="page-link text-cool-blue" href="#">2</a></li>
+                      <li className="page-item"><a className="page-link text-cool-blue" href="#">3</a></li>
+                      <li className="page-item">
+                        <a className="page-link text-cool-blue" href="#">Next</a>
+                      </li>
+                    </ul>
+                  </nav>
+                  <h6 className="card-text ml-4 pb-2 text-cool-blue">
+                      Bucketlists
                   </h6>
                   <ul className="list-group list-group-flush">
                     {
