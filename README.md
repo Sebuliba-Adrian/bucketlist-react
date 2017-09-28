@@ -6,9 +6,9 @@
 
 ### Illustrations
 1. Login page
-
+![Screenshot of registration page](/src/static/registration.png?raw=true "Registration Page")
 2. Dashboard
-
+![Screenshot of login page](/src/static/registration.png?raw=true "Login Page")
 ### Demo
 A live demo of the application is hosted on heroku
 
