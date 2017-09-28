@@ -1,16 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Registration from './components/authentication/registration';
 import Login from './components/authentication/login';
 import Dashboard from './components/dashboard';
+import PageNotFound from './components/page-not-found';
 
 const App = () => (
   <BrowserRouter>
-    <div>
+    <Switch>
       <Route path="/registration" component={Registration} />
-      <Route path="/login" component={Login} />
+      <Route path="(/|/login)" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
-    </div>
+      <Route path="*" exact={true} component={PageNotFound} />
+    </Switch>
   </BrowserRouter>
 );
 
