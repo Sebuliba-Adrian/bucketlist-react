@@ -42,9 +42,9 @@ export default class Dashboard extends Component {
 
   search = (searchTerm) => {
     if(searchTerm.length > 2){
-    if (searchTerm.substring(0, 2) === 'b:') {
+    if (searchTerm.substring(0, 2) === 'b:' || searchTerm.substring(0, 2) === 'B:') {
       this.request('getBucketlists', `bucketlists?q=${searchTerm.substring(2)}`, 'GET');
-    } else if (searchTerm.substring(0, 2) === 'i:') {
+    } else if (searchTerm.substring(0, 2) === 'i:' || searchTerm.substring(0, 2) === 'I:') {
       this.request('getItems', `bucketlists/${this.state.selectedBucketlist.id}/items?q=${searchTerm.substring(2)}`, 'GET');
     }
     } else {
