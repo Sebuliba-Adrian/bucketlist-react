@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/eric-elem/bucketlist-react.svg?branch=ft-authentication)](https://travis-ci.org/eric-elem/bucketlist-react)
+[![Build Status](https://travis-ci.org/eric-elem/bucketlist-react.svg?branch=ft-bucketlist-items)](https://travis-ci.org/eric-elem/bucketlist-react)
+[![Coverage Status](https://coveralls.io/repos/github/eric-elem/bucketlist-react/badge.svg?branch=ft-bucketlist-items)](https://coveralls.io/github/eric-elem/bucketlist-react?branch=ft-bucketlist-items)
 
 # Bucketlist React
 
