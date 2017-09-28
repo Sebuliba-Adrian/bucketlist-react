@@ -3,11 +3,15 @@ import renderer from 'react-test-renderer';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import Dashboard from '../components/dashboard';
-//Dashboard.request=jest.fn()
 
 global.localStorage = {
   setItem: () => {},
   getItem: () => 't0k3n',
+};
+const props = {
+  history: {
+    replace: jest.fn(),
+  },
 };
 
 describe('Dashboard tests', () => {
@@ -17,10 +21,10 @@ describe('Dashboard tests', () => {
       json: () => Promise.resolve({}),
     });
   });
-  const dashboard = mount(<Dashboard />);
+  const dashboard = mount(<Dashboard {...props} />);
   const instance = dashboard.instance();
   it('renders correctly', () => {
-    const dashbrd = renderer.create(<Dashboard />).toJSON();
+    const dashbrd = renderer.create(<Dashboard {...props} />).toJSON();
   expect(dashbrd).toMatchSnapshot();
   });
 

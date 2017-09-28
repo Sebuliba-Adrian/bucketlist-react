@@ -4,13 +4,19 @@ import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import Registration from '../components/authentication/registration';
 
+const props = {
+  history: {
+    replace: jest.fn(),
+  },
+};
+
 describe('Test registration', () => {
   it('renders correctly', () => {
-    const registration = renderer.create(<Registration />).toJSON();
+    const registration = renderer.create(<Registration {...props} />).toJSON();
     expect(registration).toMatchSnapshot();
   });
   configure({ adapter: new Adapter() });
-  const register = mount(<Registration />);
+  const register = mount(<Registration {...props} />);
   const instance = register.instance();
   global.fetch = jest.fn(() => {
     return Promise.resolve({

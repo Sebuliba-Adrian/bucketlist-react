@@ -74,13 +74,7 @@ export default class Registration extends Component {
 
   render() {
     if (this.state.registered) {
-      return (
-        <BrowserRouter>
-          <div>
-            <Redirect to={{ pathname: '/login', data: { message: this.state.message } }} />;
-          </div>
-        </BrowserRouter>
-      );
+      this.props.history.replace('/login', { message: this.state.message });
     }
     return (
       <div>

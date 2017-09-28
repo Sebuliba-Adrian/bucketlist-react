@@ -10,6 +10,9 @@ const props = {
       message: 'Test message',
     },
   },
+  history: {
+    replace: jest.fn(),
+  },
 };
 
 global.localStorage = {

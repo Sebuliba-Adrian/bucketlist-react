@@ -15,8 +15,8 @@ export default class LoginPage extends Component {
     if (localStorage.getItem('token') != null) {
       isLoggedIn = true;
     }
-    if (this.props.location.data != null) {
-      message = this.props.location.data.message;
+    if (this.props.location.state != null) {
+      message = this.props.location.state.message;
     }
     this.state = {
       message,
@@ -92,13 +92,7 @@ export default class LoginPage extends Component {
 
   render() {
     if (this.state.isLoggedIn) {
-      return (
-        <BrowserRouter>
-          <div>
-            <Redirect to="/dashboard" />;
-          </div>
-        </BrowserRouter>
-      );
+      this.props.history.replace('/dashboard');
     }
     return (
       <div>
