@@ -5,10 +5,10 @@
  This is a react based web application that consumes the bucketlist-api providing an interface for users to create accounts, login and create, view, edit and delete bucketlists and items.
 
 ### Illustrations
-1. Login page
-![Screenshot of registration page](/src/static/registration.png?raw=true "Registration Page")
+1. Registration page
+![Screenshot of registration page](/screenshots/registration.png?raw=true "Registration Page")
 2. Dashboard
-![Screenshot of login page](/src/static/registration.png?raw=true "Login Page")
+![Screenshot of login page](/screenshots/dashboard.png?raw=true "Login Page")
 ### Demo
 A live demo of the application is hosted on heroku
 
