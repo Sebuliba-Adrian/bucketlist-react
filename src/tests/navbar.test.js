@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import Adapter from 'enzyme-adapter-react-15';
 import Navbar from '../components/navbar';
 
 const props = {

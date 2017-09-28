@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="text-center date-display"
+>
+  <div
+    className="date-display-month text-white bg-cool-blue"
+  >
+     Sep
+  </div>
+  <div
+    className="date-display-day"
+  >
+    <h4>
+       20
+    </h4>
+  </div>
+  <div
+    className="date-display-year"
+  >
+     2017
+  </div>
+</div>
+`;

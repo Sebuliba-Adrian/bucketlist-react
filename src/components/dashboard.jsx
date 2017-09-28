@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { BrowserRouter, Redirect } from 'react-router-dom';
 import NavBar from './navbar';
 import Bucketlists from './bucketlists/bucketlists';
 import Items from './items/items';
@@ -182,7 +182,13 @@ export default class Dashboard extends Component {
 
   render() {
     if (!this.state.token) {
-      return <Redirect to={{ pathname: '/login', data: { message: this.state.message } }} />;
+      return (
+        <BrowserRouter>
+          <div>
+            <Redirect to={{ pathname: '/login', data: { message: this.state.message } }} />;
+          </div>
+        </BrowserRouter>
+      );
     }
     return (
       <div>

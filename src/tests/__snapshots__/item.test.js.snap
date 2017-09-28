@@ -8,56 +8,91 @@ exports[`renders correctly 1`] = `
     onClick={[Function]}
   >
     <div
-      className="d-flex w-100 justify-content-between"
+      className="container"
     >
-      <div>
-        <small
-          className="text-muted"
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-2 hidden-sm-down"
         >
-          <strong>
-            Updated: 
-          </strong>
-           20 Sep 2017 11:31:50 GMT
-        </small>
-      </div>
-      <div>
+          <div
+            className="text-center date-display"
+          >
+            <div
+              className="date-display-month text-white bg-cool-blue"
+            >
+               Sep
+            </div>
+            <div
+              className="date-display-day"
+            >
+              <h4>
+                 20
+              </h4>
+            </div>
+            <div
+              className="date-display-year"
+            >
+               2017
+            </div>
+          </div>
+        </div>
         <div
-          className="fa fa-lg fa-pencil-square-o mr-2"
-          data-backdrop="static"
-          data-keyboard="false"
-          data-target="#1"
-          data-toggle="modal"
-          onClick={[Function]}
-        />
-        <div
-          className="fa fa-lg fa-trash-o ml-2"
-          data-backdrop="static"
-          data-keyboard="false"
-          data-target="#deleteBucketModel1"
-          data-toggle="modal"
-          onClick={[Function]}
-        />
+          className="col-md-10 item-data"
+        >
+          <div
+            className="d-flex w-100 justify-content-between"
+          >
+            <p>
+              <small
+                className="text-muted"
+              >
+                Pending
+              </small>
+            </p>
+            <div>
+              <div
+                className="fa fa-lg fa-pencil-square-o mr-2"
+                data-backdrop="static"
+                data-keyboard="false"
+                data-target="#1"
+                data-toggle="modal"
+                onClick={[Function]}
+              />
+              <div
+                className="fa fa-lg fa-trash-o ml-2"
+                data-backdrop="static"
+                data-keyboard="false"
+                data-target="#deleteItemModel1"
+                data-toggle="modal"
+                onClick={[Function]}
+              />
+            </div>
+          </div>
+          <h5
+            className="mb-1 text-cool-blue"
+          >
+            Test Item
+          </h5>
+          <h6
+            className="text-muted"
+          >
+            This is a test item
+          </h6>
+          <div>
+            <small
+              className="text-muted"
+            >
+              <strong>
+                Updated: 
+              </strong>
+               20 Sep 2017 11:31:50 GMT
+            </small>
+          </div>
+        </div>
       </div>
     </div>
-    <br />
-    <h5
-      className="mb-1 text-cool-blue"
-    >
-      Test Bucket
-    </h5>
-    <p
-      className="text-muted"
-    >
-      This is a test bucket
-    </p>
-    <small
-      className="text-muted"
-    >
-      <strong>
-        Created: 
-      </strong>
-       20 Sep 2017 11:31:50 GMT
-    </small>
   </a>
   <div
     className="modal fade"
@@ -79,7 +114,7 @@ exports[`renders correctly 1`] = `
             className="modal-title"
             id="exampleModalLabel"
           >
-            Edit a bucketlist
+            Edit a item
           </h5>
           <button
             aria-label="Close"
@@ -112,7 +147,7 @@ exports[`renders correctly 1`] = `
               name="title"
               onChange={[Function]}
               type="text"
-              value="Test Bucket"
+              value="Test Item"
             />
           </div>
           <br />
@@ -130,8 +165,36 @@ exports[`renders correctly 1`] = `
               name="description"
               onChange={[Function]}
               type="text"
-              value="This is a test bucket"
+              value="This is a test item"
             />
+          </div>
+          <br />
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="status"
+            >
+              Status
+            </label>
+            <select
+              className="form-control"
+              id="status"
+              name="status"
+              onChange={[Function]}
+              value="0"
+            >
+              <option
+                value="1"
+              >
+                Finished
+              </option>
+              <option
+                value="0"
+              >
+                Pending
+              </option>
+            </select>
           </div>
         </div>
         <div
@@ -140,6 +203,7 @@ exports[`renders correctly 1`] = `
           <button
             className="btn btn-secondary"
             data-dismiss="modal"
+            onClick={[Function]}
             type="button"
           >
             Cancel
@@ -158,7 +222,7 @@ exports[`renders correctly 1`] = `
   </div>
   <div
     className="modal fade"
-    id="deleteBucketModel1"
+    id="deleteItemModel1"
     role="dialog"
     tabIndex="-1"
   >

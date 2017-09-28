@@ -10,6 +10,7 @@ export default class LoginPage extends Component {
     super(props);
     let isLoggedIn = false;
     let message = null;
+    this.snackbar = <div></div>;
     this.previousMessage = '';
     if (localStorage.getItem('token') != null) {
       isLoggedIn = true;
@@ -77,13 +78,15 @@ export default class LoginPage extends Component {
     if (this.state.message && !this.state.isLoggedIn &&
       this.previousMessage !== this.state.message) {
       this.previousMessage = this.state.message;
-      this.snackbar.className = 'show';
-      this.snackbar.innerHTML = this.state.message;
-      setTimeout(() => {
-        if (this.snackbar) {
-          this.snackbar.className = this.snackbar.className.replace('show', '');
-        }
-      }, 3000);
+      if (this.snackbar) {
+        this.snackbar.className = 'show';
+        this.snackbar.innerHTML = this.state.message;
+        setTimeout(() => {
+          if (this.snackbar) {
+            this.snackbar.className = this.snackbar.className.replace('show', '');
+          }
+        }, 3000);
+      }
     }
   }
 
