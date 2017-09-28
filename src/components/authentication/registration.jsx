@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, BrowserRouter } from 'react-router-dom';
 import Logo from '../logo';
 import LineWithText from './line-with-text';
 import Footer from './footer';
@@ -74,7 +74,13 @@ export default class Registration extends Component {
 
   render() {
     if (this.state.registered) {
-      return <Redirect to={{ pathname: '/login', data: { message: this.state.message } }} />;
+      return (
+        <BrowserRouter>
+          <div>
+            <Redirect to={{ pathname: '/login', data: { message: this.state.message } }} />;
+          </div>
+        </BrowserRouter>
+      );
     }
     return (
       <div>

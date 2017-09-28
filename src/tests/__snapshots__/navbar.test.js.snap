@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Navbar tests renders correctly 1`] = `
 <div
   className=""
 >
@@ -61,6 +61,7 @@ exports[`renders correctly 1`] = `
           <a
             className="dropdown-item"
             href=""
+            id="logoutLink"
             onClick={[Function]}
           >
             Logout

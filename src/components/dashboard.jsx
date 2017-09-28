@@ -56,10 +56,11 @@ export default class Dashboard extends Component {
   componentDidUpdate() {
     if (this.state.message !== '' && this.state.token && this.previousMessage !== this.state.message) {
       this.previousMessage = this.state.message;
+      if(this.snackbar){
       this.snackbar.className = 'show';
       this.snackbar.innerHTML = this.state.message;
       setTimeout(() => { this.snackbar.className = this.snackbar.className.replace('show', ''); }, 3000);
-    }
+    }}
   }
 
   request = (action, urlEndPoint, requestMethod, requestBody) => {

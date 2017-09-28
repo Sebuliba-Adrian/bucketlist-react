@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Test items renders correctly 1`] = `
 <div>
   <a
     className="list-group-item list-group-item-action flex-column align-items-start"
@@ -27,7 +27,6 @@ exports[`renders correctly 1`] = `
           data-keyboard="false"
           data-target="#1"
           data-toggle="modal"
-          onClick={[Function]}
         />
         <div
           className="fa fa-lg fa-trash-o ml-2"
@@ -35,7 +34,6 @@ exports[`renders correctly 1`] = `
           data-keyboard="false"
           data-target="#deleteBucketModel1"
           data-toggle="modal"
-          onClick={[Function]}
         />
       </div>
     </div>
@@ -202,7 +200,6 @@ exports[`renders correctly 1`] = `
           <button
             className="btn btn-secondary"
             data-dismiss="modal"
-            onClick={[Function]}
             type="button"
           >
             Cancel

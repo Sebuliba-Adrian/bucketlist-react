@@ -25,10 +25,6 @@ export default class ItemModal extends Component {
     });
   }
 
-  handleClick = (event) => {
-    event.stopPropagation();
-  }
-
   submitData = (event) => {
     if (this.props.theId === 'addItemModal') {
       this.props.request('addItem', `bucketlists/${this.props.selectedBucketlist.id}/items`, 'POST', this.state);

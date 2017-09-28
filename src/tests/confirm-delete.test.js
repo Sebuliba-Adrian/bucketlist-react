@@ -1,9 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { mount, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import ConfirmDelete from '../components/confirm-delete';
 
 const props = {
-  theId: 1,
+  theId: 'deleteBucketModel1',
   bucketlist: {
     id: 1,
     title: 'Test Bucket',
@@ -26,7 +28,23 @@ const props = {
   request: jest.fn(),
   viewItems: jest.fn(),
 };
-it('renders correctly', () => {
-  const confirmDelete = renderer.create(<ConfirmDelete {...props} />).toJSON();
-  expect(confirmDelete).toMatchSnapshot();
+
+describe('Confirm delete tests', () => {
+  configure({ adapter: new Adapter() });
+  const confirmDel = mount(<ConfirmDelete {...props} />);
+  const instance = confirmDel.instance();
+
+  it('renders correctly', () => {
+    const confirmDelete = renderer.create(<ConfirmDelete {...props} />).toJSON();
+    expect(confirmDelete).toMatchSnapshot();
+  });
+
+  it('Triggers delete', () => {
+    const button = confirmDel.find('button').at(2);
+    button.simulate('click');
+    expect(props.request).toHaveBeenCalled();
+    confirmDel.setProps({ theId: 'deleteItemModel1' });
+    button.simulate('click');
+    expect(props.request).toHaveBeenCalled();
+  });
 });

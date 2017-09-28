@@ -4,17 +4,9 @@ import ItemModal from './item-modal';
 import ConfirmDelete from '../confirm-delete';
 
 export default function Item(props) {
-  function handleClick(event) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
   return (
     <div>
-      <a
-        href=""
-        onClick={handleClick}
-        className="list-group-item list-group-item-action flex-column align-items-start"
-      >
+      <div className="list-group-item list-group-item-action flex-column align-items-start">
         <div className="container">
           <div className="row">
             <div className="col-md-2 hidden-sm-down">
@@ -33,7 +25,6 @@ export default function Item(props) {
                     data-toggle="modal"
                     data-backdrop="static"
                     data-keyboard="false"
-                    onClick={handleClick}
                     data-target={`#${props.item.id}`}
                   />
                   <div
@@ -41,7 +32,6 @@ export default function Item(props) {
                     data-toggle="modal"
                     data-backdrop="static"
                     data-keyboard="false"
-                    onClick={handleClick}
                     data-target={`#deleteItemModel${props.item.id}`}
                   />
                 </div>
@@ -59,7 +49,7 @@ export default function Item(props) {
             </div>
           </div>
         </div>
-      </a>
+      </div>
       <ItemModal
         title="Edit a item"
         action="Submit"

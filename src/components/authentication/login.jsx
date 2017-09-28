@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, BrowserRouter } from 'react-router-dom';
 import Logo from '../logo';
 import LineWithText from './line-with-text';
 import Footer from './footer';
@@ -92,7 +92,13 @@ export default class LoginPage extends Component {
 
   render() {
     if (this.state.isLoggedIn) {
-      return <Redirect to="/dashboard" />;
+      return (
+        <BrowserRouter>
+          <div>
+            <Redirect to="/dashboard" />;
+          </div>
+        </BrowserRouter>
+      );
     }
     return (
       <div>

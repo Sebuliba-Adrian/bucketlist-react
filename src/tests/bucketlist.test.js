@@ -1,5 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { mount, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import Bucketlist from '../components/bucketlists/bucketlist';
 
 
@@ -15,7 +17,25 @@ const props = {
   request: jest.fn(),
   viewItems: jest.fn(),
 };
-it('renders correctly', () => {
-  const tree = renderer.create(<Bucketlist {...props} />).toJSON();
-  expect(tree).toMatchSnapshot();
+
+describe('Test items', () => {
+  it('renders correctly', () => {
+    const bucketlist = renderer.create(<Bucketlist {...props} />).toJSON();
+    expect(bucketlist).toMatchSnapshot();
+  });
+
+  configure({ adapter: new Adapter() });
+  const bucket = mount(<Bucketlist {...props} />);
+  global.fetch = jest.fn(() => {
+    return Promise.resolve({
+      json: () => Promise.resolve({}),
+    });
+  });
+  it('Shows buckets items', () => {
+    const bucketrow = bucket.find('a');
+    bucketrow.simulate('click');
+    expect(props.viewItems).toHaveBeenCalled();
+  });
+
 });
+

@@ -2,10 +2,8 @@
 
 exports[`renders correctly 1`] = `
 <div>
-  <a
+  <div
     className="list-group-item list-group-item-action flex-column align-items-start"
-    href=""
-    onClick={[Function]}
   >
     <div
       className="container"
@@ -58,7 +56,6 @@ exports[`renders correctly 1`] = `
                 data-keyboard="false"
                 data-target="#1"
                 data-toggle="modal"
-                onClick={[Function]}
               />
               <div
                 className="fa fa-lg fa-trash-o ml-2"
@@ -66,7 +63,6 @@ exports[`renders correctly 1`] = `
                 data-keyboard="false"
                 data-target="#deleteItemModel1"
                 data-toggle="modal"
-                onClick={[Function]}
               />
             </div>
           </div>
@@ -93,7 +89,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
     </div>
-  </a>
+  </div>
   <div
     className="modal fade"
     id={1}
@@ -266,7 +262,6 @@ exports[`renders correctly 1`] = `
           <button
             className="btn btn-secondary"
             data-dismiss="modal"
-            onClick={[Function]}
             type="button"
           >
             Cancel

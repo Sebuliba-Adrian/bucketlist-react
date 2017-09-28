@@ -120,7 +120,6 @@ exports[`renders correctly 1`] = `
                       data-keyboard="false"
                       data-target="#1"
                       data-toggle="modal"
-                      onClick={[Function]}
                     />
                     <div
                       className="fa fa-lg fa-trash-o ml-2"
@@ -128,7 +127,6 @@ exports[`renders correctly 1`] = `
                       data-keyboard="false"
                       data-target="#deleteBucketModel1"
                       data-toggle="modal"
-                      onClick={[Function]}
                     />
                   </div>
                 </div>
@@ -295,7 +293,6 @@ exports[`renders correctly 1`] = `
                       <button
                         className="btn btn-secondary"
                         data-dismiss="modal"
-                        onClick={[Function]}
                         type="button"
                       >
                         Cancel
@@ -339,7 +336,6 @@ exports[`renders correctly 1`] = `
                       data-keyboard="false"
                       data-target="#2"
                       data-toggle="modal"
-                      onClick={[Function]}
                     />
                     <div
                       className="fa fa-lg fa-trash-o ml-2"
@@ -347,7 +343,6 @@ exports[`renders correctly 1`] = `
                       data-keyboard="false"
                       data-target="#deleteBucketModel2"
                       data-toggle="modal"
-                      onClick={[Function]}
                     />
                   </div>
                 </div>
@@ -514,7 +509,6 @@ exports[`renders correctly 1`] = `
                       <button
                         className="btn btn-secondary"
                         data-dismiss="modal"
-                        onClick={[Function]}
                         type="button"
                       >
                         Cancel

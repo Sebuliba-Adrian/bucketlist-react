@@ -3,15 +3,11 @@ import BucketlistModal from './bucketlist-modal';
 import ConfirmDelete from '../confirm-delete';
 
 export default function Bucketlist(props) {
-  function handleClick(event) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
   function viewItems(event) {
+    console.log('---clicked---')
     event.preventDefault();
     props.viewItems(props.bucketlist);
   }
-  console.log(props.bucketlist.created_at)
   return (
     <div>
       <a
@@ -35,7 +31,6 @@ export default function Bucketlist(props) {
               data-target={`#${props.bucketlist.id}`}
               data-backdrop="static"
               data-keyboard="false"
-              onClick={handleClick}
             />
             <div
               className="fa fa-lg fa-trash-o ml-2"
@@ -43,7 +38,6 @@ export default function Bucketlist(props) {
               data-target={`#deleteBucketModel${props.bucketlist.id}`}
               data-backdrop="static"
               data-keyboard="false"
-              onClick={handleClick}
             />
           </div>
         </div>

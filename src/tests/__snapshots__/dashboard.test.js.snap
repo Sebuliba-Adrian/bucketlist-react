@@ -1,7 +1,414 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Dashboard tests renders correctly 1`] = `
 <div>
-  ;
+  <div
+    className="custom-navbar bg-cool-blue"
+  >
+    <div
+      className=""
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-4"
+        >
+          <a
+            className="navbar-brand logo text-white"
+            href=""
+            onClick={[Function]}
+          >
+            <h3>
+              <span
+                className="fa fa-lg fa-bitbucket mr-3 ml-3"
+              />
+              |   Bucketlists
+            </h3>
+          </a>
+        </div>
+        <div
+          className="col-md-4 text-center"
+        >
+          <input
+            className="form-control mr-sm-2 search-box"
+            onKeyDown={[Function]}
+            placeholder="Search e.g b:the bucket title or i:the item title"
+            type="text"
+          />
+        </div>
+        <div
+          className="col-md-4 text-right"
+        >
+          <div
+            className="dropdown logout-dropdown"
+          >
+            <div
+              className="fa fa-user-circle fa-lg text-white dropdown-toggle"
+              data-toggle="dropdown"
+              id="dropdownMenuLink"
+            >
+               
+              <span
+                className="logo"
+              >
+                <b>
+                   
+                  t0k3n
+                   
+                </b>
+              </span>
+            </div>
+            <div
+              aria-labelledby="dropdownMenuLink"
+              className="dropdown-menu dropdown-cust"
+            >
+              <a
+                className="dropdown-item"
+                href=""
+                id="logoutLink"
+                onClick={[Function]}
+              >
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-4 bucketlists"
+    >
+      <div>
+        <div
+          className="container"
+        >
+          <div
+            className="card mt-3 mb-3"
+          >
+            <div
+              className="card-block"
+            >
+              <div
+                className="d-flex w-100 justify-content-between mb-2"
+              >
+                <p />
+                <button
+                  className="btn btn-sm btn-cool-blue col-xs-12"
+                  data-target="#addBucketlistModal"
+                  data-toggle="modal"
+                >
+                  <span
+                    className="fa fa-plus pull-left"
+                  />
+                   Add bucketlist
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="modal fade"
+          id="addBucketlistModal"
+          role="dialog"
+          tabIndex="-1"
+        >
+          <div
+            className="modal-dialog"
+            role="document"
+          >
+            <div
+              className="modal-content"
+            >
+              <div
+                className="modal-header"
+              >
+                <h5
+                  className="modal-title"
+                  id="exampleModalLabel"
+                >
+                  Create a bucket
+                </h5>
+                <button
+                  aria-label="Close"
+                  className="close"
+                  data-dismiss="modal"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    ×
+                  </span>
+                </button>
+              </div>
+              <div
+                className="modal-body"
+              >
+                <label
+                  htmlFor="tiltle"
+                >
+                  Title
+                </label>
+                <div
+                  className="input-group"
+                  onChange={[Function]}
+                >
+                  <input
+                    className="form-control"
+                    id="tiltle"
+                    name="title"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <br />
+                <label
+                  htmlFor="description"
+                >
+                  Description
+                </label>
+                <div
+                  className="input-group"
+                >
+                  <textarea
+                    className="form-control"
+                    id="description"
+                    name="description"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="modal-footer"
+              >
+                <button
+                  className="btn btn-secondary"
+                  data-dismiss="modal"
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  className="btn btn-primary"
+                  data-dismiss="modal"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-8 items"
+    >
+      <div>
+        <div
+          className="container items-container"
+        >
+          <div
+            className="card mt-3 mb-3"
+          >
+            <div
+              className="card-block"
+            >
+              <div
+                className="d-flex w-100 justify-content-between mb-2"
+              >
+                <h5 />
+                <button
+                  className="btn btn-sm btn-cool-blue col-xs-12"
+                  data-target="#addItemModal"
+                  data-toggle="modal"
+                >
+                  <span
+                    className="fa fa-plus pull-left"
+                  />
+                   Add Item
+                </button>
+              </div>
+              <nav
+                className="ml-4"
+              >
+                <ul
+                  className="pagination pagination-sm"
+                >
+                  <li
+                    className="page-item disabled"
+                  >
+                    <a
+                      className="page-link"
+                      href="#"
+                      tabindex="-1"
+                    >
+                      Previous
+                    </a>
+                  </li>
+                  <li
+                    className="page-item"
+                  >
+                    <a
+                      className="page-link"
+                      href="#"
+                    >
+                      1
+                    </a>
+                  </li>
+                  <li
+                    className="page-item"
+                  >
+                    <a
+                      className="page-link"
+                      href="#"
+                    >
+                      2
+                    </a>
+                  </li>
+                  <li
+                    className="page-item"
+                  >
+                    <a
+                      className="page-link"
+                      href="#"
+                    >
+                      3
+                    </a>
+                  </li>
+                  <li
+                    className="page-item"
+                  >
+                    <a
+                      className="page-link"
+                      href="#"
+                    >
+                      Next
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <h6
+                className="card-text ml-4 pb-2 text-center text-cool-blue"
+              >
+                Select a bucketlist to view it's items
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div
+          className="modal fade"
+          id="addItemModal"
+          role="dialog"
+          tabIndex="-1"
+        >
+          <div
+            className="modal-dialog"
+            role="document"
+          >
+            <div
+              className="modal-content"
+            >
+              <div
+                className="modal-header"
+              >
+                <h5
+                  className="modal-title"
+                  id="exampleModalLabel"
+                >
+                  Create an item
+                </h5>
+                <button
+                  aria-label="Close"
+                  className="close"
+                  data-dismiss="modal"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    ×
+                  </span>
+                </button>
+              </div>
+              <div
+                className="modal-body"
+              >
+                <label
+                  htmlFor="tiltle"
+                >
+                  Title
+                </label>
+                <div
+                  className="input-group"
+                  onChange={[Function]}
+                >
+                  <input
+                    className="form-control"
+                    id="tiltle"
+                    name="title"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <br />
+                <label
+                  htmlFor="description"
+                >
+                  Description
+                </label>
+                <div
+                  className="input-group"
+                >
+                  <textarea
+                    className="form-control"
+                    id="description"
+                    name="description"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <br />
+              </div>
+              <div
+                className="modal-footer"
+              >
+                <button
+                  className="btn btn-secondary"
+                  data-dismiss="modal"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button
+                  className="btn btn-primary"
+                  data-dismiss="modal"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    id="snackbar"
+  />
 </div>
 `;

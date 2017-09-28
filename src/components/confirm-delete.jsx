@@ -7,10 +7,6 @@ export default function ConfirmDelete(props) {
     } else {
       props.request('deleteItem', `bucketlists/${props.selectedBucketlist.id}/items/${props.item.id}`, 'DELETE');
     }
-    event.stopPropagation();
-  }
-  function cancelDelete(event) {
-    event.stopPropagation();
   }
   return (
     <div className="modal fade" id={props.theId} tabIndex="-1" role="dialog">
@@ -30,7 +26,6 @@ export default function ConfirmDelete(props) {
               type="button"
               className="btn btn-secondary"
               data-dismiss="modal"
-              onClick={cancelDelete}
             >
               Cancel
             </button>

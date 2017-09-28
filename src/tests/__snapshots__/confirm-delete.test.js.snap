@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Confirm delete tests renders correctly 1`] = `
 <div
   className="modal fade"
-  id={1}
+  id="deleteBucketModel1"
   role="dialog"
   tabIndex="-1"
 >
@@ -47,7 +47,6 @@ exports[`renders correctly 1`] = `
         <button
           className="btn btn-secondary"
           data-dismiss="modal"
-          onClick={[Function]}
           type="button"
         >
           Cancel
