@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login tests renders correctly 1`] = `
+<div>
+  <div
+    className="bg-banner"
+  />
+  <div
+    className="col-md-4 offset-md-4 col-xs-10 offset-xs-2 card-vcenter"
+  >
+    <div
+      className="card pl-4 pr-4 pb-2 no-border-corners"
+    >
+      <div
+        className="mt-5 text-cool-blue logo-spacing pb-2 text-center"
+      >
+        <span
+          className="fa fa-5x fa-bitbucket"
+        />
+        <br />
+        <h4
+          className="logo mb-2 mt-4"
+        >
+          <b>
+            BUCKETLISTS
+          </b>
+        </h4>
+      </div>
+      <p
+        className="text-center grey-text"
+      >
+        Record and track your goals 
+      </p>
+      <div
+        className="card-block"
+      >
+        <div
+          className="line-with-text font-weight-bold mb-4"
+        >
+          <div
+            className="line"
+          />
+          <div
+            className="line-text"
+          >
+            LOGIN
+          </div>
+          <div
+            className="line"
+          />
+        </div>
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            className="form-control mb-1"
+            name="username"
+            onChange={[Function]}
+            placeholder="Username"
+            required={true}
+            type="text"
+            value=""
+          />
+          <input
+            className="form-control mb-2"
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            required={true}
+            type="password"
+            value=""
+          />
+          <button
+            className="btn btn-cool-blue btn-sm col-md-12"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+        <p
+          className="card-text text-center grey-text message mt-3"
+        >
+          Don't have an account? 
+          <a
+            className="card-link"
+            href="/registration"
+          >
+            Register
+          </a>
+        </p>
+        <p
+          className="grey-text text-center mt-2 message"
+        >
+          By signing up, you agree to our
+          <br />
+          <b>
+            Terms & Privacy Policy
+          </b>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    id="snackbar"
+  />
+</div>
+`;
