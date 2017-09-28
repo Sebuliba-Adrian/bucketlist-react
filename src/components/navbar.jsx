@@ -36,7 +36,7 @@ export default function NavBar(props) {
               &nbsp;<span className="logo"><b> { localStorage.getItem('username') } </b></span>
             </div>
             <div className="dropdown-menu dropdown-cust" aria-labelledby="dropdownMenuLink">
-              <a className="dropdown-item" href="" onClick={logoutUser}>Logout</a>
+              <a id="logoutLink" className="dropdown-item" href="" onClick={logoutUser}>Logout</a>
             </div>
           </div>
         </div>
