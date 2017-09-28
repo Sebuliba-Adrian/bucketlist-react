@@ -1,18 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Registration from './components/authentication/registration';
 import Login from './components/authentication/login';
-import Bucketlists from './components/bucketlists/bucketlists';
+import Dashboard from './components/dashboard';
+import PageNotFound from './components/page-not-found';
 
 const App = () => (
   <BrowserRouter>
-    <div>
+    <Switch>
       <Route path="/registration" component={Registration} />
-      <Route path="/login" component={Login} />
-      <Route path="/bucketlists" component={Bucketlists} />
-    </div>
+      <Route path="(/|/login)" component={Login} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="*" exact={true} component={PageNotFound} />
+    </Switch>
   </BrowserRouter>
 );
 
 export default App;
-export const APIUrl = 'http://127.0.0.1:5000/';
+export const APIUrl = 'https://erics-bucketlist-api.herokuapp.com/';

@@ -1,44 +1,44 @@
 import React, { Component } from 'react';
 
-export default class BucketlistModal extends Component {
+export default class ItemModal extends Component {
   constructor(props) {
     super(props);
-    if (props.bucketlist) {
-      this.state = props.bucketlist;
+    if (props.item) {
+      this.state = props.item
     } else {
       this.state = {
         title: '',
         description: '',
+        status: '',
       };
     }
+    this.defaultState = this.state;
   }
 
-  onInputChange = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
+  onInputChange = ({ target }) => {
+    let { value } = target;
+    if (target.name === 'status') {
+      value = value === '1' ? 'True' : 'False';
+    }
     this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
-
-  resetState = () => {
-    this.setState({
-      title: '',
-      description: '',
+      [target.name]: value,
     });
   }
 
   submitData = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-    if (this.props.theId === 'addBucketlistModal') {
-      this.props.request('addBucketlist', 'bucketlists', 'POST', this.state);
+    if (this.props.theId === 'addItemModal') {
+      this.props.request('addItem', `bucketlists/${this.props.selectedBucketlist.id}/items`, 'POST', this.state);
     } else {
-      this.props.request('updateBucketlist', `bucketlists/${this.state.id}`, 'PUT', this.state);
+      this.state["new_status"] = this.state.status; // hack
+      this.props.request('updateItem', `bucketlists/${this.props.selectedBucketlist.id}/items/${this.state.id}`, 'PUT', this.state);
     }
-    this.resetState();
+    event.stopPropagation();
+    this.resetState(event);
   }
-
+  resetState = (event) => {
+    event.stopPropagation();
+    this.setState(this.defaultState);
+  }
   render() {
     return (
       <div className="modal fade" id={this.props.theId} tabIndex="-1" role="dialog">
@@ -74,12 +74,29 @@ export default class BucketlistModal extends Component {
                   value={this.state.description}
                 />
               </div>
+              <br />
+              { this.state.status !== '' &&
+              <div className="form-group">
+                <label htmlFor="status">Status</label>
+                <select
+                  name="status"
+                  className="form-control"
+                  id="status"
+                  value={this.state.status ? '1' : '0'}
+                  onChange={this.onInputChange}
+                >
+                  <option value="1">Finished</option>
+                  <option value="0">Pending</option>
+                </select>
+              </div>
+              }
             </div>
             <div className="modal-footer">
               <button
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={this.resetState}
               >
                 Cancel
               </button>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect, BrowserRouter } from 'react-router-dom';
 import Logo from '../logo';
-import Message from '../message';
 import LineWithText from './line-with-text';
 import Footer from './footer';
 import { APIUrl } from '../../App';
@@ -11,11 +10,13 @@ export default class LoginPage extends Component {
     super(props);
     let isLoggedIn = false;
     let message = null;
+    this.snackbar = <div></div>;
+    this.previousMessage = '';
     if (localStorage.getItem('token') != null) {
       isLoggedIn = true;
     }
-    if (this.props.location.data != null) {
-      message = this.props.location.data.message;
+    if (this.props.location.state != null) {
+      message = this.props.location.state.message;
     }
     this.state = {
       message,
@@ -23,6 +24,14 @@ export default class LoginPage extends Component {
       username: '',
       password: '',
     };
+  }
+
+  componentDidMount() {
+    this.showSnackbar();
+  }
+
+  componentDidUpdate() {
+    this.showSnackbar();
   }
 
   onInputChange = ({ target }) => {
@@ -64,53 +73,70 @@ export default class LoginPage extends Component {
         }
       });
   }
+
+  showSnackbar() {
+    if (this.state.message && !this.state.isLoggedIn &&
+      this.previousMessage !== this.state.message) {
+      this.previousMessage = this.state.message;
+      if (this.snackbar) {
+        this.snackbar.className = 'show';
+        this.snackbar.innerHTML = this.state.message;
+        setTimeout(() => {
+          if (this.snackbar) {
+            this.snackbar.className = this.snackbar.className.replace('show', '');
+          }
+        }, 3000);
+      }
+    }
+  }
+
   render() {
     if (this.state.isLoggedIn) {
-      return <Redirect to="/bucketlists" />;
+      this.props.history.replace('/dashboard');
     }
     return (
-      <div className="col-md-4 offset-md-4 col-xs-10 offset-xs-2">
-        <div className="card mt-5 p-4">
-          <div className="card-block">
+      <div>
+        <div className="bg-banner" />
+        <div className="col-md-4 offset-md-4 col-xs-10 offset-xs-2 card-vcenter">
+          <div className="card pl-4 pr-4 pb-2 no-border-corners">
             <Logo />
-            <LineWithText lineText="LOGIN" />
-            {this.state.message != null &&
-              <Message
-                message={this.state.message}
-              />
-            }
-            <form onSubmit={this.submitUserCredentials}>
-              <input
-                type="text"
-                className="form-control mb-1"
-                placeholder="Username"
-                name="username"
-                value={this.state.username}
-                onChange={this.onInputChange}
-                required
-              />
-              <input
-                className="form-control mb-2"
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.onInputChange}
-                placeholder="Password"
-                required
-              />
-              <button
-                className="btn btn-primary btn-sm col-md-12"
-                type="submit"
-              >Submit
-              </button>
-            </form>
-            <p className="grey-text text-center mt-4 message">
-              Resolve password issues
-              <Link to="/reset-password" className="card-link"> here</Link>
-            </p>
+            <p className="text-center grey-text">Record and track your goals </p>
+            <div className="card-block">
+              <LineWithText lineText="LOGIN" />
+              <form onSubmit={this.submitUserCredentials}>
+                <input
+                  type="text"
+                  className="form-control mb-1"
+                  placeholder="Username"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.onInputChange}
+                  required
+                />
+                <input
+                  className="form-control mb-2"
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.onInputChange}
+                  placeholder="Password"
+                  required
+                />
+                <button
+                  className="btn btn-cool-blue btn-sm col-md-12"
+                  type="submit"
+                >Submit
+                </button>
+              </form>
+              <Footer message="Don't have an account? " link="/registration" linkText="Register" />
+              <p className="grey-text text-center mt-2 message">
+                By signing up, you agree to our<br />
+                <b>Terms & Privacy Policy</b>
+              </p>
+            </div>
           </div>
         </div>
-        <Footer message="Don't have an account? " link="/registration" linkText="Register" />
+        <div id="snackbar" ref={(snackbar) => { this.snackbar = snackbar; }} />
       </div>
     );
   }

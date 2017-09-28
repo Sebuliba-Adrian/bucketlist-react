@@ -1,0 +1,632 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    className="container"
+  >
+    <div
+      className="card mt-3 mb-3"
+    >
+      <div
+        className="card-block"
+      >
+        <div
+          className="d-flex w-100 justify-content-between mb-2"
+        >
+          <p />
+          <button
+            className="btn btn-sm btn-cool-blue col-xs-12"
+            data-target="#addBucketlistModal"
+            data-toggle="modal"
+          >
+            <span
+              className="fa fa-plus pull-left"
+            />
+             Add bucketlist
+          </button>
+        </div>
+        <div>
+          <nav
+            className="ml-4"
+          >
+            <ul
+              className="pagination pagination-sm"
+            >
+              <li
+                className="page-item disabled"
+              >
+                <a
+                  className="page-link"
+                  href="#"
+                  tabindex="-1"
+                >
+                  Previous
+                </a>
+              </li>
+              <li
+                className="page-item"
+              >
+                <a
+                  className="page-link text-cool-blue"
+                  href="#"
+                >
+                  1
+                </a>
+              </li>
+              <li
+                className="page-item"
+              >
+                <a
+                  className="page-link text-cool-blue"
+                  href="#"
+                >
+                  2
+                </a>
+              </li>
+              <li
+                className="page-item"
+              >
+                <a
+                  className="page-link text-cool-blue"
+                  href="#"
+                >
+                  3
+                </a>
+              </li>
+              <li
+                className="page-item"
+              >
+                <a
+                  className="page-link text-cool-blue"
+                  href="#"
+                >
+                  Next
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <h6
+            className="card-text ml-4 pb-2 text-cool-blue"
+          >
+            Bucketlists
+          </h6>
+          <ul
+            className="list-group list-group-flush"
+          >
+            <div>
+              <a
+                className="list-group-item list-group-item-action flex-column align-items-start"
+                href=""
+                onClick={[Function]}
+              >
+                <div
+                  className="d-flex w-100 justify-content-between"
+                >
+                  <div>
+                    <small
+                      className="text-muted"
+                    >
+                      <strong>
+                        Updated: 
+                      </strong>
+                       20 Sep 2017 11:31:50 GMT
+                    </small>
+                  </div>
+                  <div>
+                    <div
+                      className="fa fa-lg fa-pencil-square-o mr-2"
+                      data-backdrop="static"
+                      data-keyboard="false"
+                      data-target="#1"
+                      data-toggle="modal"
+                    />
+                    <div
+                      className="fa fa-lg fa-trash-o ml-2"
+                      data-backdrop="static"
+                      data-keyboard="false"
+                      data-target="#deleteBucketModel1"
+                      data-toggle="modal"
+                    />
+                  </div>
+                </div>
+                <br />
+                <h5
+                  className="mb-1 text-cool-blue"
+                >
+                  Test Bucket
+                </h5>
+                <p
+                  className="text-muted"
+                >
+                  This is a test bucket
+                </p>
+                <small
+                  className="text-muted"
+                >
+                  <strong>
+                    Created: 
+                  </strong>
+                   20 Sep 2017 11:31:50 GMT
+                </small>
+              </a>
+              <div
+                className="modal fade"
+                id={1}
+                role="dialog"
+                tabIndex="-1"
+              >
+                <div
+                  className="modal-dialog"
+                  role="document"
+                >
+                  <div
+                    className="modal-content"
+                  >
+                    <div
+                      className="modal-header"
+                    >
+                      <h5
+                        className="modal-title"
+                        id="exampleModalLabel"
+                      >
+                        Edit a bucketlist
+                      </h5>
+                      <button
+                        aria-label="Close"
+                        className="close"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                        >
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      className="modal-body"
+                    >
+                      <label
+                        htmlFor="tiltle"
+                      >
+                        Title
+                      </label>
+                      <div
+                        className="input-group"
+                        onChange={[Function]}
+                      >
+                        <input
+                          className="form-control"
+                          id="tiltle"
+                          name="title"
+                          onChange={[Function]}
+                          type="text"
+                          value="Test Bucket"
+                        />
+                      </div>
+                      <br />
+                      <label
+                        htmlFor="description"
+                      >
+                        Description
+                      </label>
+                      <div
+                        className="input-group"
+                      >
+                        <textarea
+                          className="form-control"
+                          id="description"
+                          name="description"
+                          onChange={[Function]}
+                          type="text"
+                          value="This is a test bucket"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="modal-footer"
+                    >
+                      <button
+                        className="btn btn-secondary"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="btn btn-primary"
+                        data-dismiss="modal"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="modal fade"
+                id="deleteBucketModel1"
+                role="dialog"
+                tabIndex="-1"
+              >
+                <div
+                  className="modal-dialog"
+                  role="document"
+                >
+                  <div
+                    className="modal-content"
+                  >
+                    <div
+                      className="modal-header"
+                    >
+                      <h5
+                        className="modal-title"
+                        id="exampleModalLabel"
+                      >
+                        Delete
+                      </h5>
+                      <button
+                        aria-label="Close"
+                        className="close"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                        >
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      className="modal-body"
+                    >
+                      Are you sure you want to delete?
+                    </div>
+                    <div
+                      className="modal-footer"
+                    >
+                      <button
+                        className="btn btn-secondary"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="btn btn-primary"
+                        data-dismiss="modal"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <a
+                className="list-group-item list-group-item-action flex-column align-items-start"
+                href=""
+                onClick={[Function]}
+              >
+                <div
+                  className="d-flex w-100 justify-content-between"
+                >
+                  <div>
+                    <small
+                      className="text-muted"
+                    >
+                      <strong>
+                        Updated: 
+                      </strong>
+                       20 Sep 2017 11:31:50 GMT
+                    </small>
+                  </div>
+                  <div>
+                    <div
+                      className="fa fa-lg fa-pencil-square-o mr-2"
+                      data-backdrop="static"
+                      data-keyboard="false"
+                      data-target="#2"
+                      data-toggle="modal"
+                    />
+                    <div
+                      className="fa fa-lg fa-trash-o ml-2"
+                      data-backdrop="static"
+                      data-keyboard="false"
+                      data-target="#deleteBucketModel2"
+                      data-toggle="modal"
+                    />
+                  </div>
+                </div>
+                <br />
+                <h5
+                  className="mb-1 text-cool-blue"
+                >
+                  Test Bucket 2
+                </h5>
+                <p
+                  className="text-muted"
+                >
+                  This is a test bucket 2
+                </p>
+                <small
+                  className="text-muted"
+                >
+                  <strong>
+                    Created: 
+                  </strong>
+                   20 Sep 2017 11:31:50 GMT
+                </small>
+              </a>
+              <div
+                className="modal fade"
+                id={2}
+                role="dialog"
+                tabIndex="-1"
+              >
+                <div
+                  className="modal-dialog"
+                  role="document"
+                >
+                  <div
+                    className="modal-content"
+                  >
+                    <div
+                      className="modal-header"
+                    >
+                      <h5
+                        className="modal-title"
+                        id="exampleModalLabel"
+                      >
+                        Edit a bucketlist
+                      </h5>
+                      <button
+                        aria-label="Close"
+                        className="close"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                        >
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      className="modal-body"
+                    >
+                      <label
+                        htmlFor="tiltle"
+                      >
+                        Title
+                      </label>
+                      <div
+                        className="input-group"
+                        onChange={[Function]}
+                      >
+                        <input
+                          className="form-control"
+                          id="tiltle"
+                          name="title"
+                          onChange={[Function]}
+                          type="text"
+                          value="Test Bucket 2"
+                        />
+                      </div>
+                      <br />
+                      <label
+                        htmlFor="description"
+                      >
+                        Description
+                      </label>
+                      <div
+                        className="input-group"
+                      >
+                        <textarea
+                          className="form-control"
+                          id="description"
+                          name="description"
+                          onChange={[Function]}
+                          type="text"
+                          value="This is a test bucket 2"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="modal-footer"
+                    >
+                      <button
+                        className="btn btn-secondary"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="btn btn-primary"
+                        data-dismiss="modal"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="modal fade"
+                id="deleteBucketModel2"
+                role="dialog"
+                tabIndex="-1"
+              >
+                <div
+                  className="modal-dialog"
+                  role="document"
+                >
+                  <div
+                    className="modal-content"
+                  >
+                    <div
+                      className="modal-header"
+                    >
+                      <h5
+                        className="modal-title"
+                        id="exampleModalLabel"
+                      >
+                        Delete
+                      </h5>
+                      <button
+                        aria-label="Close"
+                        className="close"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                        >
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      className="modal-body"
+                    >
+                      Are you sure you want to delete?
+                    </div>
+                    <div
+                      className="modal-footer"
+                    >
+                      <button
+                        className="btn btn-secondary"
+                        data-dismiss="modal"
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="btn btn-primary"
+                        data-dismiss="modal"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="modal fade"
+    id="addBucketlistModal"
+    role="dialog"
+    tabIndex="-1"
+  >
+    <div
+      className="modal-dialog"
+      role="document"
+    >
+      <div
+        className="modal-content"
+      >
+        <div
+          className="modal-header"
+        >
+          <h5
+            className="modal-title"
+            id="exampleModalLabel"
+          >
+            Create a bucket
+          </h5>
+          <button
+            aria-label="Close"
+            className="close"
+            data-dismiss="modal"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ×
+            </span>
+          </button>
+        </div>
+        <div
+          className="modal-body"
+        >
+          <label
+            htmlFor="tiltle"
+          >
+            Title
+          </label>
+          <div
+            className="input-group"
+            onChange={[Function]}
+          >
+            <input
+              className="form-control"
+              id="tiltle"
+              name="title"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <br />
+          <label
+            htmlFor="description"
+          >
+            Description
+          </label>
+          <div
+            className="input-group"
+          >
+            <textarea
+              className="form-control"
+              id="description"
+              name="description"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="modal-footer"
+        >
+          <button
+            className="btn btn-secondary"
+            data-dismiss="modal"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            className="btn btn-primary"
+            data-dismiss="modal"
+            onClick={[Function]}
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

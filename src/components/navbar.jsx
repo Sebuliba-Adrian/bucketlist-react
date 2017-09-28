@@ -1,26 +1,44 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-export default function NavBar() {
+export default function NavBar(props) {
+  function logoutUser(event) {
+    event.preventDefault();
+    props.request('logoutUser', 'auth/logout', 'GET');
+  }
+  function viewBucketlists(event) {
+    event.preventDefault();
+    props.viewBucketlists();
+  }
+  function triggerSearch(event) {
+    if (event.keyCode === 13) {
+      props.search(event.target.value);
+    }
+  }
   return (
-    <div className="container">
+    <div className="">
       <div className="row">
         <div className="col-md-4">
-          <Link to="/dashboard" className="navbar-brand logo">
-            <h3>BUCKETLIST</h3>
-          </Link>
+          <a href="" onClick={viewBucketlists} className="navbar-brand logo text-white">
+            <h3><span className="fa fa-lg fa-bitbucket mr-3 ml-3" />| &nbsp; Bucketlists</h3>
+          </a>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 text-center">
           <input
             className="form-control mr-sm-2 search-box"
             type="text"
-            placeholder="Search"
+            placeholder="Search e.g b:the bucket title or i:the item title"
+            onKeyDown={triggerSearch}
           />
         </div>
         <div className="col-md-4 text-right">
-          <a className="nav-link logo" href="#">
-            { localStorage.getItem('username') } <span className="fa fa-sign-out" />
-          </a>
+          <div className="dropdown logout-dropdown">
+            <div className="fa fa-user-circle fa-lg text-white dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown">
+              &nbsp;<span className="logo"><b> { localStorage.getItem('username') } </b></span>
+            </div>
+            <div className="dropdown-menu dropdown-cust" aria-labelledby="dropdownMenuLink">
+              <a id="logoutLink" className="dropdown-item" href="" onClick={logoutUser}>Logout</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
