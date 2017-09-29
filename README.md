@@ -11,7 +11,7 @@
 2. Dashboard
 ![Screenshot of login page](/screenshots/dashboard.png?raw=true "Login Page")
 ### Demo
-A live demo of the application is hosted at https://bucketlist-react-eric.herokuapp.com/
+A live demo of the application is hosted at https://bucketlist-react-cp4.herokuapp.com
 
 ### Technologies
 1. React
