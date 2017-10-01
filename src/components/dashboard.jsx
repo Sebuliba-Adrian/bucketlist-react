@@ -64,7 +64,7 @@ export default class Dashboard extends Component {
   }
 
   request = (action, urlEndPoint, requestMethod, requestBody) => {
-    fetch(`${APIUrl}${urlEndPoint}`, {
+    return fetch(`${APIUrl}${urlEndPoint}`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -101,6 +101,7 @@ export default class Dashboard extends Component {
             });
           }
         } else if (action === 'addBucketlist') {
+          console.log('-------------here------------')
           let updateBucketlists = [];
           if (this.state.bucketlists.length > 0) {
             updateBucketlists = this.state.bucketlists.slice();

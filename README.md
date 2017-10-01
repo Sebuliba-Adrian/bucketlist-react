@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/eric-elem/bucketlist-react.svg?branch=ft-bucketlist-items)](https://travis-ci.org/eric-elem/bucketlist-react)
-[![Coverage Status](https://coveralls.io/repos/github/eric-elem/bucketlist-react/badge.svg?branch=ft-bucketlist-items)](https://coveralls.io/github/eric-elem/bucketlist-react?branch=ft-bucketlist-items)
+[![Build Status](https://travis-ci.org/eric-elem/bucketlist-react.svg?branch=master)](https://travis-ci.org/eric-elem/bucketlist-react)
+[![Coverage Status](https://coveralls.io/repos/github/eric-elem/bucketlist-react/badge.svg?branch=master)](https://coveralls.io/github/eric-elem/bucketlist-react?branch=master)
 
 # Bucketlist React
 
@@ -11,7 +11,7 @@
 2. Dashboard
 ![Screenshot of login page](/screenshots/dashboard.png?raw=true "Login Page")
 ### Demo
-A live demo of the application is hosted on heroku
+A live demo of the application is hosted at https://bucketlist-react-cp4.herokuapp.com
 
 ### Technologies
 1. React
